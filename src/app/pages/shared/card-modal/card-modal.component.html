@@ -1,0 +1,37 @@
+<div class="card shadow" *ngFor="let image of images" [ngClass]="{'animate__animated animate__fadeIn animate__slow': !imageDetail}">
+    <img [src]="image.webformatURL" class="card-img-top" [alt]="image.tags">
+    <div class="card-body">
+        <h5 class="card-title">{{ image.tags | titlecase }}</h5>
+        <!-- Button trigger modal -->
+        <button (click)="seeDetails(image.id)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
+            Ver detalles
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="modallabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" *ngIf="imageDetail">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modallabel">{{ imageDetail[0].tags | titlecase }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card shadow">
+                            <img [src]="imageDetail[0].webformatURL" class="card-img-top" [alt]="imageDetail[0].tags">
+                            <div class="card-body">
+                                <p class="card-text"><i class="far fa-eye"></i> {{ imageDetail[0].views | number}}</p>
+                                <p class="card-text"><i class="far fa-thumbs-up"></i> {{ imageDetail[0].likes |number }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end-modal -->
+    </div>
+</div>

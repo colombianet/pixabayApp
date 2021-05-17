@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+.btn-primary {
+    background-color: #f16b2d!important;
+    border-color: #f16b2d !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #f55104 !important;
+}
+
+.btn-primary:active {
+    background-color: #fd5b10 !important;
+    border-color: #fd5b10 !important;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.1rem rgb(243 56 0 / 85%) !important;
+}
+
+.modal-header h5 {
+    color: #f16b2d!important;
+}
+
+.far {
+    color: #f16b2d;
+}
